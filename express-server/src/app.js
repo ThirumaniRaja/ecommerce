@@ -5,7 +5,7 @@ const port = 8000;
 const loginRouter = require('./api/login');
 
 const middleWare = (req, res, next) => {
-  console.log("running the middleware for",req.method, req.url)
+  console.log("running the middleware for",req.method, req.url,req.body)
   next();
 }
 app.use(middleWare);

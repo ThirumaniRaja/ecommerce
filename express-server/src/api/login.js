@@ -8,10 +8,13 @@ const database = require('../db_connector/database')
 const port = 3000;
 
 // app.use(cors())
-router.get('/login', async (req, res) => {
- await res.json({
+router.post('/api/login', async (req, res) => {
+
+ const body = await req.body;
+ return res.send({
       "statuscode": 200,
-      "statusmessage":"success"
+      "statusmessage":"success",
+      "token":"BGUUOLHJKJKSKLIOOPNMAJNJWKLKLKJJJO5565GGCGXFDXYYUUYDFSDHGJHGJHGJHGGH"
   })
 })
 

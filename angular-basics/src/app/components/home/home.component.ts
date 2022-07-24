@@ -10,13 +10,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private crudHttpService: CrudHttpService) { }
   todoList:any = [];
+  username: any;
   ngOnInit(): void {
     this.listTodos();
   }
 
   listTodos(){
-    this.crudHttpService.list().pipe().subscribe((data)=>{
-      this.todoList = data;
+    this.crudHttpService.list().pipe().subscribe((data:any)=>{
+      this.todoList = data
+
     },error=>{
 
     })
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
     if (userValue != null) {
       let todo = {
         id: new Date().getTime(),
-        title:`New Data Created for ${userValue}` 
+        title:`New Data Created for ${userValue}`,
       }
       this.crudHttpService.create(todo).subscribe((response)=>this.listTodos());
     }
@@ -39,7 +41,7 @@ export class HomeComponent implements OnInit {
     if (userValue != null) {
     let data = {
       id: new Date().getTime(),
-      title:`Updated User is ${userValue}` 
+      title:`Updated User is ${userValue}`,
     }
     this.crudHttpService.update(todo.id,data).subscribe((response)=>this.listTodos());
   }

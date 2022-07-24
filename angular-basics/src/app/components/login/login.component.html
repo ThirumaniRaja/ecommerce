@@ -1,14 +1,17 @@
 <div class="container">
-  <div class="login_card">
+  <div [formGroup]="loginForm" (ngSubmit)="login()" class="login_card">
     <h1>Login</h1>
     <div class="form-fields-wrapper">
-      <input class="login_fields" type="text" placeholder="username" />
+      <input formControlName="username" class="login_fields" type="text" placeholder="username" />
     </div>
     <div class="form-fields-wrapper"> 
-      <input class="login_fields" type="password" placeholder="password" />
+      <input formControlName="password" class="login_fields" type="password" placeholder="password" />
     </div>
     <div class="form-fields-wrapper">
-      <button class="login-btn login_fields " (click)="login()">login</button>
+      <button type="submit" class="login-btn login_fields " (click)="login()">Login</button>
+    </div>
+    <div class="form-fields-wrapper">
+        <a href="#" style="color: black;" [routerLink]="'sign-in'">Sign up</a>
     </div>
   </div>
 </div>
